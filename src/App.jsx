@@ -11,6 +11,7 @@ import Login from "./components/views/Login";
 import Registrarse from "./components/views/Registrarse"
 import CrearReceta from "./components/views/recetas/CrearReceta"
 import EditarReceta from "./components/views/recetas/EditarReceta"
+import Error404 from './components/views/Error404';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       </Route>
       <Route path="/login/registrarse" element={<Registrarse></Registrarse>}>
       </Route>
+      <Route path="*" element={<Error404></Error404>}></Route>
 
 
 
