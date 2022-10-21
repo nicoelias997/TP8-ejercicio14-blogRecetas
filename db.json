@@ -1,0 +1,14 @@
+{
+    "productos": [
+        {
+            "nombreProducto": "tortilla-avena",
+            "tiempo": "10",
+            "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "categoria": "desayuno",
+            "CantidadIngredientes": "5",
+            "ingrediente":"",
+            "descripcion": "batir los huevos, luego agregarle edulcorante y escencia de vainilla, luego 3 cucharadas de avena, mezclar bien. Poner a calentar una sarten con un poco de aceite. Vertir la mezcla y cocinar 3 minutos a fuego medio de ambos lados.",
+            "id": "1"
+        }
+    ]
+}
