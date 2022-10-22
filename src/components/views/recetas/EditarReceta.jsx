@@ -18,7 +18,7 @@ const EditarReceta = () => {
 
   return (
     <Container>
-      <h2 className='mt-5 text-center'>Crear receta</h2>
+      <h2 className='mt-5 text-center'>Editar receta</h2>
       <Form className='mt-5 mb-5' onSubmit={handleSubmit(onSubmit)}>
         <Row>
       <Col xs={9}>
@@ -161,7 +161,7 @@ const EditarReceta = () => {
         </Row>
         <hr />
         <Form.Group className="mt-2 text-center">
-        <Button type='submit' className='btn btn-warning'>Crear receta</Button>
+        <Button type='submit' className='btn btn-warning'>Editar receta</Button>
         </Form.Group>
       </Form>
     </Container>
