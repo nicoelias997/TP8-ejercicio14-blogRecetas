@@ -148,7 +148,10 @@ const CrearReceta = () => {
             </Form.Control>
             {/* ESTE BUTTON TENDRA UN ONCLICK PARA AGREGAR CADA INGREDIENTE A UN ARRAY INGREDIENTES */}
             <Button className='btn btn-sm btn-dark float-end mt-1' type='button' onClick={() => agregarIngrediente()}>Agregar</Button>
+          <Form.Text className="text-danger m-1">{errors.ingredientes?.message}</Form.Text>
+
           </Form.Group>
+
             
             {/* AQUI TENDRE QUE PINTAR CON MAP, SEGUN LOS INGREDIENTES QUE ENVIE, PARA PINTARLOS EN UNA LISTA */}
 
