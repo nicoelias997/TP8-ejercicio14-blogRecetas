@@ -26,7 +26,7 @@ function App() {
       </Route>
       <Route path="/administrar/crear" element={<CrearReceta></CrearReceta>}>
       </Route>
-      <Route path="/administrar/editar" element={<EditarReceta></EditarReceta>}>
+      <Route path="/administrar/editar/" element={<EditarReceta></EditarReceta>}>
       </Route>
       <Route path="/login" element={<Login></Login>}>
       </Route>

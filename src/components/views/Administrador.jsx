@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col, Container, Row, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import ItemReceta from './recetas/ItemReceta'
 
 const Administrador = () => {
   return (
@@ -29,9 +30,13 @@ const Administrador = () => {
             <th>Nombre ingredientes</th>
             <th>Descripcion</th>
           </tr>
-        </thead>
+        </thead>  
         <tbody>
-          
+          <ItemReceta></ItemReceta>
+          <ItemReceta></ItemReceta>
+          <ItemReceta></ItemReceta>
+          <ItemReceta></ItemReceta>
+
         </tbody>
         </Table>
     </Container>
