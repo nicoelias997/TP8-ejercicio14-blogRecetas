@@ -10,10 +10,17 @@ const CrearReceta = () => {
     console.log(datosReceta)
   }
 
+  const agregarIngrediente = () => {
+    console.log("ingrediente 1")
+  }
+
   return (
     <Container>
       <h2 className='mt-5 text-center'>Crear receta</h2>
       <Form className='mt-5 mb-5' onSubmit={handleSubmit(onSubmit)}>
+        <Row>
+      <Col xs={9}>
+
         <Form.Group className="mt-2">
           <Form.Label>Nombre producto:</Form.Label>
           <Form.Control type="text" placeholder='Ej: tortilla de avena'
@@ -119,11 +126,38 @@ const CrearReceta = () => {
           <Form.Text className="text-danger">{errors.descripcion?.message}</Form.Text>
 
         </Form.Group>
+       
+      </Col>
+        <Col xs={3}>
+          <Form.Group className="mt-2">
+            <Form.Label>Ingredientes:</Form.Label>
+            <Form.Control  placeholder="Ej: 100ml leche, 8 huevos, etc"
+            {
+              ...register("ingredientes", {
+                required: "Ingrese los ingredientes a utilizar junto a su cantidades",
+                minLength: {
+                  value: 2, 
+                  message: "Debe contener al menos 2 caracteres."
+                },
+                maxLength: {
+                  value: 15, 
+                  message: "Debe contener 15 caracteres como maximo."
+                }
+              })
+            }>
+            </Form.Control>
+            {/* ESTE BUTTON TENDRA UN ONCLICK PARA AGREGAR CADA INGREDIENTE A UN ARRAY INGREDIENTES */}
+            <Button className='btn btn-sm btn-dark float-end mt-1' type='button' onClick={() => agregarIngrediente()}>Agregar</Button>
+          </Form.Group>
+            
+            {/* AQUI TENDRE QUE PINTAR CON MAP, SEGUN LOS INGREDIENTES QUE ENVIE, PARA PINTARLOS EN UNA LISTA */}
+
+        </Col>
+        </Row>
         <hr />
         <Form.Group className="mt-2 text-center">
         <Button type='submit' className='btn btn-warning'>Crear receta</Button>
         </Form.Group>
-        
       </Form>
     </Container>
   )

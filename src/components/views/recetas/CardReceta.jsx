@@ -1,8 +1,13 @@
 import React from 'react'
+import { Card } from 'react-bootstrap'
 
 const CardReceta = () => {
   return (
-    <div>CardReceta</div>
+    <Card>
+      <Card.Header>
+        <Card.Img src=''></Card.Img>
+      </Card.Header>
+    </Card>
   )
 }
 
