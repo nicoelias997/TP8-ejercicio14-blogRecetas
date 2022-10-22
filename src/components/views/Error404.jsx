@@ -2,7 +2,9 @@ import React from 'react'
 
 const Error404 = () => {
   return (
-    <div>Error404</div>
+    <h1 className='mainSection'>
+      MAl por aqui no es ja
+    </h1>
   )
 }
 
