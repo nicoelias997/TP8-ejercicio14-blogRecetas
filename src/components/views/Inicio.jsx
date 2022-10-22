@@ -1,10 +1,22 @@
 import React from 'react'
+import { Container, Row } from 'react-bootstrap'
+import CardReceta from './recetas/CardReceta'
 
 const Inicio = () => {
   return (
-    <div className='mainSection '>
-        <h1>Esta sera mi pagina principal donde pintare las recetas</h1>
-    </div>
+    <Container className='mainSection '>
+        <h1>Recetas ML&N</h1>
+        <hr />
+        <Row>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+    </Row>
+    </Container>
   )
 }
 

@@ -32,7 +32,7 @@ const Administrador = () => {
           </tr>
         </thead>  
         <tbody>
-          <ItemReceta></ItemReceta>
+          <ItemReceta ></ItemReceta>
           <ItemReceta></ItemReceta>
           <ItemReceta></ItemReceta>
           <ItemReceta></ItemReceta>

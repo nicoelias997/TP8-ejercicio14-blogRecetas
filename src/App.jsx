@@ -12,6 +12,7 @@ import Registrarse from "./components/views/Registrarse"
 import CrearReceta from "./components/views/recetas/CrearReceta"
 import EditarReceta from "./components/views/recetas/EditarReceta"
 import Error404 from './components/views/Error404';
+import DetalleProducto from "./components/views/DetalleProducto"
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
       <Route path="/administrar/crear" element={<CrearReceta></CrearReceta>}>
       </Route>
       <Route path="/administrar/editar/" element={<EditarReceta></EditarReceta>}>
+      </Route>
+      <Route path="/detalleProducto" element={<DetalleProducto></DetalleProducto>}>
       </Route>
       <Route path="/login" element={<Login></Login>}>
       </Route>
