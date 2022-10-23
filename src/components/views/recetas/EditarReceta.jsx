@@ -5,8 +5,9 @@ import {useForm} from "react-hook-form"
 const EditarReceta = () => {
 
   const {register, handleSubmit, formState:{errors}, setValue} = useForm()
-
+  // const {id} = useParams()
   // CON UN USEEFFECT Y SETVALUE PINTARE SEGUN EL ID LOS DETALLES CUANDO LO TENGA AQUI
+  
 
   const onSubmit = (datosReceta) => {
     console.log(datosReceta)

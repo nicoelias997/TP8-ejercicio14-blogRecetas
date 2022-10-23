@@ -1,25 +1,70 @@
-import React from 'react'
-import { Form, Container, Button, Row, Col } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Form, Container, Button, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap'
 import {useForm} from "react-hook-form"
+import { crearRecetaAPI } from '../../helpers/queries'
+import Swal from 'sweetalert2'
+
+import { validacionIngrediente } from '../../helpers/validaciones'
+import { useNavigate } from 'react-router-dom'
 
 const CrearReceta = () => {
 
   const {register, handleSubmit, formState:{errors}} = useForm()
 
+  const navigate = useNavigate()
+
+  const [ingrediente, setIngrediente] = useState("")
+  const [ingredientes, setIngredientes] = useState([])
+
   const onSubmit = (datosReceta) => {
     console.log(datosReceta)
+    crearRecetaAPI(datosReceta).then((respuesta) => {
+      if(respuesta.status === 201){
+        Swal.fire(
+          "Producto creado",
+          "El producto fue creado exitosamente",
+          "success"
+        )
+        navigate("/administrar")
+      } else {
+        Swal.fire(
+          "Ocurrio un error",
+          "El producto NO fue creado.",
+          "error"
+        )
+      }  
+    })
   }
 
-  const agregarIngrediente = () => {
-    console.log("ingrediente 1")
+  const agregarIngrediente = (ingrediente) => {
+   if(validacionIngrediente(ingrediente)){
+    if(ingredientes.length <= 6){
+      setIngredientes([
+        ...ingredientes,
+        ingrediente
+      ])
+    } else {
+      Swal.fire("Solo puedes enviar hasta 7 ingredientes", "Puedes agregar mas en la descripcion", "error")
+    }
+    } else {
+      Swal.fire(
+        "Ingrese un valor al ingrediente", "NO puede tener mas de 20 caracteres", "error"
+      )
+    }
+    setIngrediente("")
+  }
+  
+  const eliminarIngrediente = (item) => {
+    const arrayFiltrado = ingredientes.filter(ingrediente => item !== ingrediente)
+    setIngredientes(arrayFiltrado)
   }
 
   return (
     <Container>
       <h2 className='mt-5 text-center'>Crear receta</h2>
-      <Form className='mt-5 mb-5' onSubmit={handleSubmit(onSubmit)}>
+      <Form className='mt-5 mb-5' style={{maxHeight: "100vh"}} onSubmit={handleSubmit(onSubmit)}>
         <Row>
-      <Col xs={9}>
+      <Col xs={8}>
 
         <Form.Group className="mt-2">
           <Form.Label>Nombre producto:</Form.Label>
@@ -109,7 +154,7 @@ const CrearReceta = () => {
         </Form.Group>
         </Col>
         </Row>
-        <Form.Group className="mt-2">
+        <Form.Group className="mt-2" >
           <Form.Label>Descripcion:</Form.Label>
         <Form.Control as="textarea" rows={4} {...register("descripcion",{
             required: "La descripcion de la receta es obligatorio",
@@ -128,32 +173,40 @@ const CrearReceta = () => {
         </Form.Group>
        
       </Col>
-        <Col xs={3}>
+        <Col xs={4}>
           <Form.Group className="mt-2">
+
             <Form.Label>Ingredientes:</Form.Label>
-            <Form.Control  placeholder="Ej: 100ml leche, 8 huevos, etc"
-            {
-              ...register("ingredientes", {
-                required: "Ingrese los ingredientes a utilizar junto a su cantidades",
-                minLength: {
-                  value: 2, 
-                  message: "Debe contener al menos 2 caracteres."
-                },
-                maxLength: {
-                  value: 15, 
-                  message: "Debe contener 15 caracteres como maximo."
-                }
-              })
-            }>
+            <Form.Control  placeholder="Ej: 100ml leche, 8 huevos, etc" value={ingrediente} onChange={e => setIngrediente(e.target.value)}
+            // {
+            //   ...register("ingredientes")
+            // }
+            >
             </Form.Control>
-            {/* ESTE BUTTON TENDRA UN ONCLICK PARA AGREGAR CADA INGREDIENTE A UN ARRAY INGREDIENTES */}
-            <Button className='btn btn-sm btn-dark float-end mt-1' type='button' onClick={() => agregarIngrediente()}>Agregar</Button>
-          <Form.Text className="text-danger m-1">{errors.ingredientes?.message}</Form.Text>
+          
+            <Button className='btn btn-sm btn-dark float-end mt-1' type='button' onClick={() => agregarIngrediente(ingrediente)}>Agregar</Button>
+          {/* <Form.Text className="text-danger m-1">{errors.ingredientes?.message}</Form.Text> */}
 
-          </Form.Group>
-
-            
+          </Form.Group>           
             {/* AQUI TENDRE QUE PINTAR CON MAP, SEGUN LOS INGREDIENTES QUE ENVIE, PARA PINTARLOS EN UNA LISTA */}
+            <Col xs={12} className="d-flex mt-1">
+            <ListGroup as="ol" numbered className='d-flex mt-2'>
+
+          {
+            ((ingredientes.length !== 0)) ? 
+            ingredientes.map(item => (
+                <ListGroupItem key={item} className="d-flex justify-content-between">
+                   <span >{item}</span>
+                   <Button className='btn btn-sm float-end' onClick={() => eliminarIngrediente(item)}>X</Button>
+                  </ListGroupItem>
+                
+            )) : 
+            <ul>
+            <li className=''>No hay ingredientes.</li>
+            </ul>
+          }
+              </ListGroup>
+              </Col>
 
         </Col>
         </Row>

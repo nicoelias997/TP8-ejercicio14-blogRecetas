@@ -1,14 +1,72 @@
 {
-    "productos": [
-        {
-            "nombreProducto": "tortilla-avena",
-            "tiempo": "10",
-            "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "categoria": "desayuno",
-            "CantidadIngredientes": "5",
-            "ingrediente":"",
-            "descripcion": "batir los huevos, luego agregarle edulcorante y escencia de vainilla, luego 3 cucharadas de avena, mezclar bien. Poner a calentar una sarten con un poco de aceite. Vertir la mezcla y cocinar 3 minutos a fuego medio de ambos lados.",
-            "id": "1"
-        }
-    ]
+  "productos": [
+    {
+      "nombreProducto": "tortilla-avena",
+      "tiempo": "10",
+      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "desayuno",
+      "CantidadIngredientes": "5",
+      "ingredientes": [
+        "ingrediente 1",
+        "ingrediente 2",
+        "ingrediente 3"
+      ],
+      "descripcion": "batir los huevos, luego agregarle edulcorante y escencia de vainilla, luego 3 cucharadas de avena, mezclar bien. Poner a calentar una sarten con un poco de aceite. Vertir la mezcla y cocinar 3 minutos a fuego medio de ambos lados.",
+      "id": "1"
+    },
+    {
+      "nombreProducto": "Sanguche-jamon&queso",
+      "tiempo": "5",
+      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "desayuno",
+      "CantidadIngredientes": "4",
+      "ingredientes": [
+        "ingrediente 1",
+        "ingrediente 2",
+        "ingrediente 3"
+      ],
+      "descripcion": "Cortar el pan, sacar las fetas correspondientes a gusto de jamon y queso, poner mayonesa sobre el pan que empape, luego las fetas y armamos el apreato",
+      "id": "4aaUJ-5"
+    },
+    {
+      "nombreProducto": "Croissant jamon y queso",
+      "imagen": "https://prod-mercadona.imgix.net/images/b1860bb15ec2f38221beee0fed8296ca.jpg?fit=crop&h=300&w=300",
+      "tiempoPreparado": "10",
+      "categoria": "aperitivo",
+      "cantidadIngredientes": "4",
+      "descripcion": "asd,kaskodsaijjdskadskaijkdsjiakssdijkas",
+      "ingredientes": [
+        "ingrediente 1",
+        "ingrediente 2",
+        "ingrediente 3"
+      ],
+      "id": "ylUl10e"
+    },
+    {
+      "nombreProducto": "tortilla-avena",
+      "tiempo": "10",
+      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "desayuno",
+      "CantidadIngredientes": "5",
+      "ingredientes": [
+        "ingrediente 1",
+        "ingrediente 2",
+        "ingrediente 3",
+        "ingrediente 4",
+        "ingrediente 5",
+        "ingrediente 6"
+      ],
+      "descripcion": "batir los huevos, luego agregarle edulcorante y escencia de vainilla, luego 3 cucharadas de avena, mezclar bien. Poner a calentar una sarten con un poco de aceite. Vertir la mezcla y cocinar 3 minutos a fuego medio de ambos lados.",
+      "id": "2"
+    },
+    {
+      "nombreProducto": "Te con leche",
+      "imagen": "https://prod-mercadona.imgix.net/images/6e6409e684f3c6c7834554ed3933b9a2.jpg?fit=crop&h=300&w=300",
+      "tiempoPreparado": "12",
+      "categoria": "aperitivo",
+      "cantidadIngredientes": "3",
+      "descripcion": "sasdjnasbdajbnbdassaasdagvdsaasdasdas",
+      "id": "V38rwwO"
+    }
+  ]
 }
