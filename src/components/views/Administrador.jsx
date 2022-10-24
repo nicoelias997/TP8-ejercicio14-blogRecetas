@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { consultarAPI } from '../helpers/queries'
+import {  consultarAPI } from '../helpers/queries'
 import ItemReceta from './recetas/ItemReceta'
 
 const Administrador = () => {
   
   const [recetas, setRecetas] = useState([])
-
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
@@ -15,6 +14,7 @@ const Administrador = () => {
     }  
     )
   }, [])
+
 
   return (
     <Container className='mainSection'>
@@ -46,7 +46,7 @@ const Administrador = () => {
         <tbody>
           {
             recetas.map(item => (
-              <ItemReceta key={item.id} id={item.id} nombreProducto={item.nombreProducto} tiempo={item.tiempo} imagen={item.imagen} categoria={item.categoria} cantidadIngredientes={item.cantidadIngredientes} ingredientes={item.ingredientes} descripcion={item.descripcion}></ItemReceta>
+              <ItemReceta key={item.id} id={item.id} nombreProducto={item.nombreProducto} tiempo={item.tiempo} imagen={item.imagen} categoria={item.categoria} cantidadIngredientes={item.cantidadIngredientes} ingredientes={item.ingredientes} descripcion={item.descripcion} setRecetas={setRecetas}></ItemReceta>
             ))
           }
 

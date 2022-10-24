@@ -3,7 +3,7 @@ import { Card, Col, Container, Row, ListGroup } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 import { obtenerRecetaAPI } from '../helpers/queries'
 
-const DetalleProducto = () => {
+const DetalleProducto = ( ) => {
 
   const [receta, setReceta] = useState("")
 

@@ -1,9 +1,37 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import { borrarRecetaAPI, consultarAPI } from '../../helpers/queries'
 
 const ItemReceta = (props) => {
 
+  const borrarReceta = () => {
+    borrarRecetaAPI(props.id).then((respuesta) => {
+      if(respuesta.status === 200){
+        Swal.fire({
+          title: 'Estas seguro?',
+          text: "Este proceso sera irreversible!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Eliminado!',
+              'Tu producto fue eliminado.',
+              'success'
+            )
+            consultarAPI().then((respuesta) => {
+              props.setRecetas(respuesta)
+            })
+          }
+        })
+      }
+    })
+  }
 
   return (
     <tr className='align-items-center text-center'>
@@ -20,7 +48,7 @@ const ItemReceta = (props) => {
         Editar
       </Link> 
      
-      <Button variant="danger">
+      <Button variant="danger" onClick={borrarReceta}>
         Borrar
       </Button>
     </td>

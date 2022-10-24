@@ -38,3 +38,14 @@ export const obtenerRecetaAPI = async (id) => {
         console.log(e)
     }
 }
+
+export const borrarRecetaAPI = async (id) => {
+        try{
+            const respuesta = await fetch(URL+"/"+id,{
+                method: "DELETE",
+            })
+            return respuesta
+    } catch(e){
+        console.log(e)
+    }
+}
