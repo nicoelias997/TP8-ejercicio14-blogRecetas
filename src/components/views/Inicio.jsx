@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row } from 'react-bootstrap'
+import Swal from 'sweetalert2'
 import { consultarAPI } from '../helpers/queries'
 import CardReceta from './recetas/CardReceta'
+
 
 const Inicio = () => {
 
   const [recetas, setRecetas] = useState([])
 
   useEffect(() => {
-    consultarAPI().then((respuesta) => {
-      setRecetas(respuesta)
-    })
-  })
+    consultarAPI().then(
+      (respuesta) => {
+        setRecetas(respuesta);
+      },
+      (reason) => {
+        console.log(reason);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        })
+      }
+    );
+  }, []);
 
   return (
     <Container className='mainSection '>

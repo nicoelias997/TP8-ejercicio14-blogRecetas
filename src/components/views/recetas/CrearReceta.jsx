@@ -17,7 +17,6 @@ const CrearReceta = () => {
   const [ingredientes, setIngredientes] = useState([])
 
   const onSubmit = (datosReceta) => {
-    console.log(datosReceta)
     crearRecetaAPI(datosReceta).then((respuesta) => {
       if(respuesta.status === 201){
         Swal.fire(
@@ -176,7 +175,7 @@ const CrearReceta = () => {
         <Col xs={4}>
           <Form.Group className="mt-2">
 
-            <Form.Label>Ingredientes:</Form.Label>
+            <Form.Label>Ingredientes principales:</Form.Label>
             <Form.Control  placeholder="Ej: 100ml leche, 8 huevos, etc" value={ingrediente} onChange={e => setIngrediente(e.target.value)}
             // {
             //   ...register("ingredientes")
