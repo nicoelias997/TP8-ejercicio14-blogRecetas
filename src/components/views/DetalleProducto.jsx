@@ -42,7 +42,7 @@ const DetalleProducto = ( ) => {
             </Col>
             <Col xs={6}>
             <ListGroup as="ol" numbered variant="flush">
-      <ListGroup.Item as="li">Tiempo: {receta.tiempo} minutos.</ListGroup.Item>
+      <ListGroup.Item as="li">Tiempo: {receta.tiempoPreparado} minutos.</ListGroup.Item>
       <ListGroup.Item as="li">Cantitad total de ingredientes: {receta.cantidadIngredientes}</ListGroup.Item>
       <ListGroup.Item as="li">Categoria: {receta.categoria}</ListGroup.Item>
     </ListGroup>

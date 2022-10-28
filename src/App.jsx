@@ -8,11 +8,11 @@ import Menu from './components/commons/Menu';
 import Footer from "./components/commons/Footer";
 import Administrador from './components/views/Administrador';
 import Login from "./components/views/Login";
-import Registrarse from "./components/views/Registrarse"
 import CrearReceta from "./components/views/recetas/CrearReceta"
 import EditarReceta from "./components/views/recetas/EditarReceta"
 import Error404 from './components/views/Error404';
 import DetalleProducto from "./components/views/DetalleProducto"
+import IniciarSesion from './components/views/IniciarSesion';
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
       </Route>
       <Route path="/login" element={<Login></Login>}>
       </Route>
-      <Route path="/login/registrarse" element={<Registrarse></Registrarse>}>
+      <Route path="/login/IniciarSesion" element={<IniciarSesion></IniciarSesion>}>
       </Route>
       <Route path="*" element={<Error404></Error404>}></Route>
 

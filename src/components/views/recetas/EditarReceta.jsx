@@ -26,7 +26,7 @@ const EditarReceta = () => {
         setValue("")
       }
     })
-  }, [setValue])
+  }, [setValue, id])
 
   const onSubmit = (datosReceta) => {
     editarProductoAPI(id, datosReceta).then((respuesta) => {
@@ -148,7 +148,7 @@ const EditarReceta = () => {
               message: "La cantidad de caracteres minima es 30"
             },
             maxLength: {
-              value: 1000,
+              value: 2000,
               message: "La cantidad de caracteres maxima es 1000"
               }
             

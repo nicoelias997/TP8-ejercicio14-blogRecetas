@@ -29,10 +29,11 @@ const Inicio = () => {
     <Container className='mainSection '>
         <h1 className='mt-3'>Recetas ML&N</h1>
         <hr />
-        <Row>
+        <Row className='d-flex' xs={2} md={4} lg={3}>
+          
           {
             recetas.map(item => (
-              <CardReceta key={item.id} id={item.id} nombreProducto={item.nombreProducto} tiempo={item.tiempo} imagen={item.imagen} categoria={item.categoria} cantidadIngredientes={item.cantidadIngredientes} ingredientes={item.ingredientes} descripcion={item.descripcion}></CardReceta>
+              <CardReceta key={item.id} id={item.id} nombreProducto={item.nombreProducto} tiempo={item.tiempoPreparado} imagen={item.imagen} categoria={item.categoria} cantidadIngredientes={item.cantidadIngredientes} ingredientes={item.ingredientes} descripcion={item.descripcion}></CardReceta>
 
             ))
           }

@@ -11,8 +11,9 @@ const CardReceta = (props) => {
         <Card.Title className="mt-1">{props.nombreProducto}</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Card.Subtitle>Tiempo de preparado: {props.tiempo}</Card.Subtitle>
-        <Card.Text>{props.descripcion}</Card.Text>
+        <Card.Subtitle>Tiempo de preparado: {props.tiempo} minutos.</Card.Subtitle>
+        <br />
+        <Card.Text className='text-truncate'>{props.descripcion}</Card.Text>
       </Card.Body>
       <Card.Footer>
         <Link className='btn btn-success rounded-1 float-end ' to={`/detalleProducto/${props.id}`}>Ver mas</Link>

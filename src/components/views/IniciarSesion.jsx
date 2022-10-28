@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { consultarUserAPI } from "../helpers/queriesLogin";
 import Swal from "sweetalert2";
-import { crearUsuarioAPI } from "../helpers/queriesLogin";
 
-const Login = () => {
+const IniciarSesion = () => {
   const navigate = useNavigate();
 
   const {
@@ -13,75 +13,53 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const [usuarios, setUsuarios] = useState([]);
-
   const [usuario, setUsuario] = useState("");
-  const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-
+  
   const onSubmit = (datos) => {
-    const verificacionNombre = usuarios.find(
-      (usuario) => usuario.id === datos.usuario
-    );
-    const verificacionEmail = usuarios.find(
-      (usuario) => usuario.email === datos.email
-    );
-
-    if (verificacionNombre) {
-      Swal.fire(
-        "Este usuario es existente",
-        "Prueba registrarte con otro nombre de usuario",
-        "error"
+    consultarUserAPI().then((respuesta) => {
+      const encontrarUser = respuesta.find(
+        (user) => user.usuario === datos.usuario
       );
-      return;
-    } else if (verificacionEmail) {
-      Swal.fire(
-        "Este email es existente",
-        "Prueba registrarte con otro email",
-        "error"
+      const encontrarEmail = respuesta.find(
+        (user) => user.email === datos.email
       );
-      return;
-    } else {
-      crearUsuarioAPI(datos).then((respuesta) => {
-        if(respuesta.status === 201){
-        setUsuarios([
-          ...usuarios,
-          {
-            usuario: datos.usuario,
-            email: datos.email,
-            pass: datos.pass,
-            id: datos.usuario,
-          },
-        ]);
-        Swal.fire(
-          `Te registraste correctamente, ${usuario}`,
-          "Inicia sesion con tu nueva cuenta.",
-          "success"
-        );
-        navigate("/login/IniciarSesion");
-      } else {
-        Swal.fire(
-            `Hubo un error inesperado`,
-            "Intentelo nuevamente en breve.",
+      if (encontrarUser || encontrarEmail) {
+        if (encontrarUser.pass === datos.pass) {
+          Swal.fire(
+            "Bienvenido",
+            `Gracias por contar con nosotros, ${encontrarUser.usuario}`,
+            "success"
+          );
+          localStorage.setItem("usuarioActivo", JSON.stringify(encontrarUser.usuario));
+          navigate("/administrar");
+        } else {
+          Swal.fire(
+            "Error",
+            `Contraseña incorrecta, vuelva a intentarlo`,
             "error"
           );
+        }
+      } else {
+        Swal.fire(
+          "Usuario o email incorrecto",
+          `No encontramos un usuario o email con ese nombre, vuelve a intentarlo`,
+          "error"
+        );
       }
-   })
-    }
-}
-
+    });
+  };
 
   return (
     <div className="mt-5 mainSection">
-      <h3 className="text-center">Registro</h3>
+      <h3 className="text-center">Login de acceso</h3>
       <div className="row justify-content-center">
         <div className="col-12 col-sm-8 col-md-6 col-xl-4">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-2">
               <Form.Control
                 type="text"
-                placeholder="Ingrese un nombre de usuario"
+                placeholder="Ingrese su nombre de usuario o email"
                 {...register("usuario", {
                   required: "Debe ingresar un nombre de usuario",
                   minLength: {
@@ -92,10 +70,6 @@ const Login = () => {
                     value: 30,
                     message: "El nombre no debe tener mas de 30 caracteres",
                   },
-                  pattern: {
-                    value: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/gim,
-                    message: "Debe ingresar un nombre de usaurio valido",
-                  },
                 })}
                 onChange={(e) => setUsuario(e.target.value)}
                 value={usuario}
@@ -104,24 +78,7 @@ const Login = () => {
                 {errors.usuario?.message}
               </Form.Text>
             </Form.Group>
-            <Form.Group className="mb-2">
-              <Form.Control
-                placeholder="Ingrese un email"
-                {...register("email", {
-                  required: "Debe ingresar un email",
-                  pattern: {
-                    value:
-                      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,
-                    message: "Debe ingresar un formato valido",
-                  },
-                })}
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-              <Form.Text className="text-danger mb-2">
-                {errors.email?.message}
-              </Form.Text>
-            </Form.Group>
+
             <Form.Group className="mb-2">
               <Form.Control
                 type="password"
@@ -150,14 +107,14 @@ const Login = () => {
                 className="btn btn-dark btn-lg btn-block mb-2"
                 type="submit"
               >
-                Registrarse
+                Iniciar sesion
               </Button>
               <button
                 className="btn btn-danger btn-sm mt-2"
                 type="button"
-                onClick={() => navigate("/login/iniciarSesion")}
+                onClick={() => navigate("/login")}
               >
-                ¿Ya estas registrado?
+                ¿No estas registrado?
               </button>
             </div>
           </Form>
@@ -167,4 +124,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default IniciarSesion;

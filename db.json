@@ -1,38 +1,51 @@
 {
   "productos": [
     {
-      "nombreProducto": "Sanguche-jamon&queso",
-      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "tiempoPreparado": "5",
-      "categoria": "aperitivo",
+      "nombreProducto": "Sanguche de pavo",
+      "imagen": "https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "tiempoPreparado": "10",
+      "categoria": "desayuno-merienda",
       "cantidadIngredientes": "5",
-      "descripcion": "Cortar el pan, sacar las fetas correspondientes a gusto de jamon y queso, poner mayonesa sobre el pan que empape, luego las fetas y armamos el apreato",
-      "ingredientes": "1aa",
+      "descripcion": "1. Cortar el pan baguette y untar con mayonesa o manteca sobre la miga\n2. Agregarle 5 lonchas de pavo\n3. Agregarle lechuga cortada a trozos\n4. Agregarle 4 rodajas de tomate \n5. Agregar sal y aceite de oliva(opcional) a gusto.\n6. Puedes agregarle lonchas de queso.\n",
+      "ingredientes": "112",
       "id": "4aaUJ-5"
     },
     {
       "nombreProducto": "Croissant jamon y queso",
-      "imagen": "https://prod-mercadona.imgix.net/images/b1860bb15ec2f38221beee0fed8296ca.jpg?fit=crop&h=300&w=300",
-      "tiempoPreparado": "10",
-      "categoria": "aperitivo",
-      "cantidadIngredientes": "4",
-      "descripcion": "asd,kaskodsaijjdskadskaijkdsjiakssdijkas",
-      "ingredientes": [
-        "ingrediente 1",
-        "ingrediente 2",
-        "ingrediente 3"
-      ],
+      "imagen": "https://media.istockphoto.com/photos/croissant-ham-and-cheese-picture-id925156810?k=20&m=925156810&s=612x612&w=0&h=IUt0kFxJ5e3sCBLa9HE3RsM2mFhq3OJ5bv3Y_HxD7P4=",
+      "tiempoPreparado": "5",
+      "categoria": "desayuno-merienda",
+      "cantidadIngredientes": "3",
+      "descripcion": "1. Cortar el croissant a la mitad.\n2. Agregarle 2 lonchas de jamon\n3. Agregarle 2 lonchas de queso.\n4. Tostar de ambos lados en una sarten durante 3 minutos.",
+      "ingredientes": "aa",
       "id": "ylUl10e"
     },
     {
       "nombreProducto": "Carrot cake",
-      "imagen": "https://prod-mercadona.imgix.net/images/b1860bb15ec2f38221beee0fed8296ca.jpg?fit=crop&h=300&w=300",
+      "imagen": "https://images.pexels.com/photos/963755/pexels-photo-963755.jpeg?auto=compress&cs=tinysrgb&w=600",
       "tiempoPreparado": "10",
       "categoria": "desayuno-merienda",
       "cantidadIngredientes": "8",
-      "descripcion": "ansdjndasjnadsjkasdjkasnjasdnadsjnadsjnadsdsaasd",
+      "descripcion": "Puedes rellenar la tarta o dejarla como un bizcocho, por eso puedes hacerla en un solo molde de unos 18-20 cm de diámetro o en dos moldes para tener dos planchas y rellenar la tarta. También puedes hacerla en solo un molde y partirla luego en dos como yo he hecho. Forra con papel vegetal los moldes y precalienta el horno a 180ºC.\n\nEn un bol grande bate con las varillas manuales o eléctricas los huevos con el azúcar. Añade el aceite y bate hasta que se hayan integrado.\n\nIncorpora la harina y los polvos de hornear (royal) poco a poco tamizando con un colador. Añade la canela, la sal y bate hasta que la masa sea homogénea.\n\nEcha la zanahoria rallada y las nueces. Mezcla con una lengua o cuchara para integrarlo todo.\n\nVierte la masa en un molde o divide la masa entre dos moldes. Hornea a 170ºC unos 40-55 min. No abras el horno antes de pasados 30 min. Después puedes comprobar si el bizcocho está hecho si al introducir un palillo sale limpio.\n\nSaca del horno y deja enfriar 5 min, después saca del molde y si es posible colócala sobre una rejilla y deja que se enfríe por completo.\n\nMientras haremos el frosting pero la tarta debe estar fría antes de ponérselo.",
       "ingredientes": "aa",
       "id": "S6FfVMr"
+    },
+    {
+      "nombreProducto": "Flan de huevo",
+      "imagen": "https://media.istockphoto.com/photos/caramel-custard-with-eggs-and-milk-picture-id491904014?b=1&k=20&m=491904014&s=612x612&w=0&h=9A5yxgQS-6Z7NyoigEnxx_d7tvbWqzz768jbNbwc_F4=",
+      "tiempoPreparado": "60",
+      "categoria": "postre",
+      "cantidadIngredientes": "3",
+      "descripcion": "Primero debemos agarrar 8 huevos, un litro de leche y 250gr de azucar, caramelo.\nLo primero es romper los huevos y ponerlos en un bowl. \nLuego batimos los huevos hasta que tenga una consistencia espumosa. Una vez logrado este punto, agregamos el azucar y la leche y batimos hasta que nuevamente veamos esa consistencia espumosa.\nCuanto tenemos la mezcla, en una fuente para horno, agregamos el caramelo que cubra toda la superficie. Una vez desparramado todo el caramelo, agregamos la mezcla.\nDebemos cocinar a baño maria durante 60 minutos.\nLuego sacar, y dejar enfriar. Debemos desmoldar pasada las 24hs.",
+      "id": "XjHq2Hd"
+    }
+  ],
+  "usuarios": [
+    {
+      "usuario": "nicoelias997",
+      "email": "nicoelias997@gmail.com",
+      "pass": "12341234",
+      "id": "FDuUtpX"
     }
   ]
 }
