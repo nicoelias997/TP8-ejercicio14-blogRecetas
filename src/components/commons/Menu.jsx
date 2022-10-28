@@ -12,7 +12,7 @@ const Menu = () => {
     if((storageUser)){
       setUserActive(true)
     }
-  })
+  }, [storageUser, setUserActive])
 
   const navigate = useNavigate()
 
