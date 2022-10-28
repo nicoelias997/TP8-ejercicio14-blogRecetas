@@ -2,16 +2,12 @@
   "productos": [
     {
       "nombreProducto": "Sanguche-jamon&queso",
-      "tiempo": "5",
       "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "categoria": "desayuno",
-      "CantidadIngredientes": "4",
-      "ingredientes": [
-        "ingrediente 1",
-        "ingrediente 2",
-        "ingrediente 3"
-      ],
+      "tiempoPreparado": "5",
+      "categoria": "aperitivo",
+      "cantidadIngredientes": "5",
       "descripcion": "Cortar el pan, sacar las fetas correspondientes a gusto de jamon y queso, poner mayonesa sobre el pan que empape, luego las fetas y armamos el apreato",
+      "ingredientes": "1aa",
       "id": "4aaUJ-5"
     },
     {
@@ -31,10 +27,11 @@
     {
       "nombreProducto": "Carrot cake",
       "imagen": "https://prod-mercadona.imgix.net/images/b1860bb15ec2f38221beee0fed8296ca.jpg?fit=crop&h=300&w=300",
-      "tiempoPreparado": "50",
+      "tiempoPreparado": "10",
       "categoria": "desayuno-merienda",
       "cantidadIngredientes": "8",
       "descripcion": "ansdjndasjnadsjkasdjkasnjasdnadsjnadsjnadsdsaasd",
+      "ingredientes": "aa",
       "id": "S6FfVMr"
     }
   ]

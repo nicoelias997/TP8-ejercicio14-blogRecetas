@@ -1,17 +1,44 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Form, Container, Button, Row, Col } from 'react-bootstrap'
 import {useForm} from "react-hook-form"
+import { obtenerRecetaAPI, editarProductoAPI } from '../../helpers/queries'
+import Swal from 'sweetalert2'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const EditarReceta = () => {
 
   const {register, handleSubmit, formState:{errors}, setValue} = useForm()
-  // const {id} = useParams()
+  const {id} = useParams()
+
+  const navigate = useNavigate()
   // CON UN USEEFFECT Y SETVALUE PINTARE SEGUN EL ID LOS DETALLES CUANDO LO TENGA AQUI
-  
+  useEffect(() => {
+    obtenerRecetaAPI(id).then((respuesta) => {
+      console.log(respuesta.dato)
+      if(respuesta.status === 200){
+        setValue("nombreProducto", respuesta.dato.nombreProducto)
+        setValue("precio",  respuesta.dato.precio)
+        setValue("imagen",  respuesta.dato.imagen)
+        setValue("categoria",  respuesta.dato.categoria)
+        setValue("tiempoPreparado", respuesta.dato.tiempoPreparado)
+        setValue("descripcion", respuesta.dato.descripcion)
+        setValue("cantidadIngredientes", respuesta.dato.cantidadIngredientes)
+        setValue("")
+      }
+    })
+  }, [setValue])
 
   const onSubmit = (datosReceta) => {
-    console.log(datosReceta)
-  }
+    editarProductoAPI(id, datosReceta).then((respuesta) => {
+      if(respuesta.status === 200){
+        Swal.fire("Producto editado", "El producto fue correctamente actualizdo", "success")
+        navigate("/administrar")
+      } else {
+        Swal.fire("Ocurrio un error", "HUbo un problema, intentelo nuevamente en breve.", "error")
+      }
+    })
+}
+  
 
  const agregarIngrediente = () => {
   console.log("ingrediente 1")

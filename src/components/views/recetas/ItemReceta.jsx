@@ -37,7 +37,7 @@ const ItemReceta = (props) => {
     <tr className='align-items-center text-center'>
           <td>{props.id}</td>
             <td>{props.nombreProducto}</td>
-            <td>{props.tiempo}</td>
+            <td>{props.tiempoPreparado}</td>
             <td className='text-truncate maxLength'>{props.imagen}</td>
             <td>{props.categoria}</td>
             <td >{props.cantidadIngredientes }</td>

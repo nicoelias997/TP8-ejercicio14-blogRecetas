@@ -49,3 +49,18 @@ export const borrarRecetaAPI = async (id) => {
         console.log(e)
     }
 }
+
+export const editarProductoAPI =  async (id, producto) => {
+    try{
+        const respuesta = await fetch(URL+"/"+id,{
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(producto)
+        })
+        return respuesta
+    } catch(e){
+        console.log(e)
+    }
+}
