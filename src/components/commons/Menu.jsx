@@ -35,7 +35,7 @@ const Menu = () => {
 
 
 return (
-    <Navbar bg="danger" variant="dark" expand="lg">
+    <Navbar className="bgColorMenu" variant="dark" expand="lg">
       <Container>
         {
           userActive ? (<Navbar.Brand as={Link} to="/">
